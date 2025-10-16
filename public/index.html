@@ -5,16 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>My Love List - Todos</title>
     <link rel="stylesheet" href="/styles.css" />
+    <link rel="manifest" href="/manifest.webmanifest" />
   </head>
   <body>
     <main class="container">
-      <h1>My Code Kingdom</h1>
-      <p class="subtitle">Todo demo: Express API + Web cơ bản</p>
+      <h1>💕 My Love List 💕</h1>
+      <p class="subtitle">Những điều yêu thương trong cuộc sống • <span id="quote"></span></p>
 
       <form id="todo-form">
-        <input id="todo-input" placeholder="Nhập việc cần làm..." autocomplete="off" />
-        <button type="submit">Thêm</button>
+        <input id="todo-input" placeholder="Thêm điều gì đó bạn yêu thích..." autocomplete="off" />
+        <input id="due-input" type="datetime-local" title="Hẹn giờ" />
+        <button type="submit">💖 Thêm yêu thương</button>
       </form>
+
+      <div id="toolbar" style="display:flex;gap:8px;align-items:center;margin:12px 0;flex-wrap:wrap;">
+        <input id="search-input" placeholder="Tìm kiếm..." style="flex:1;min-width:180px;" />
+        <div id="filters" role="tablist" aria-label="Bộ lọc" style="display:flex;gap:6px;">
+          <button data-filter="all">Tất cả</button>
+          <button data-filter="active">Chưa xong</button>
+          <button data-filter="completed">Đã xong</button>
+        </div>
+        <button id="toggle-all">Chọn tất cả</button>
+        <button id="clear-completed" class="danger">Xóa mục đã xong</button>
+        <button id="voice-btn" title="Thêm bằng giọng nói">🎤 Nói</button>
+        <button id="export-btn" title="Xuất JSON">⬇️ Xuất</button>
+        <button id="import-btn" title="Nhập JSON">⬆️ Nhập</button>
+        <input id="import-file" type="file" accept="application/json" style="display:none" />
+        <button id="notify-btn" title="Bật thông báo">🔔 Thông báo</button>
+      </div>
+
+      <div id="stats" class="subtitle" style="margin-top:-8px; margin-bottom:8px;"></div>
+      <div id="offline-banner" class="subtitle" style="display:none;color:#ffb3c7">Bạn đang offline. Thay đổi sẽ được đồng bộ khi online.</div>
 
       <ul id="todo-list"></ul>
     </main>
@@ -22,4 +43,3 @@
     <script src="/app.js" type="module"></script>
   </body>
   </html>
-

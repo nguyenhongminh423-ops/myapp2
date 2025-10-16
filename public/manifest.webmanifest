@@ -1,0 +1,10 @@
+{
+  "name": "My Love List",
+  "short_name": "LoveList",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#2d1b3d",
+  "theme_color": "#ff6b9d",
+  "icons": []
+}
+
